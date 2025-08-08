@@ -78,7 +78,7 @@ private:
     QString dialogCaptionOrDefault() const;
 
     FileSystemPathEdit *q_ptr = nullptr;
-    std::unique_ptr<Private::IFileEditorWithCompletion> m_editor;
+    Private::IFileEditorWithCompletion% m_editor;
     QAction *m_browseAction = nullptr;
     QToolButton *m_browseBtn = nullptr;
     QString m_fileNameFilter;

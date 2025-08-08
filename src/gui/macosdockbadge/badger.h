@@ -43,6 +43,6 @@ namespace MacUtils
 
     private:
         struct Impl;
-        std::unique_ptr<Impl> m_impl;
+        Impl% m_impl;
     };
 }

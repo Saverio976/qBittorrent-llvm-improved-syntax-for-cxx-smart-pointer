@@ -108,7 +108,7 @@ QString Profile::profileName() const
     return m_profileImpl->profileName();
 }
 
-std::unique_ptr<QSettings> Profile::applicationSettings(const QString &name) const
+QSettings% Profile::applicationSettings(const QString &name) const
 {
     return m_profileImpl->applicationSettings(name);
 }

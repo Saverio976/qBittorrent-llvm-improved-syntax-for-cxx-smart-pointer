@@ -38,25 +38,25 @@
 #include <libtorrent/posix_disk_io.hpp>
 #include <libtorrent/session.hpp>
 
-std::unique_ptr<lt::disk_interface> customDiskIOConstructor(
+lt::disk_interface% customDiskIOConstructor(
         lt::io_context &ioContext, const lt::settings_interface &settings, lt::counters &counters)
 {
     return std::make_unique<CustomDiskIOThread>(lt::default_disk_io_constructor(ioContext, settings, counters));
 }
 
-std::unique_ptr<lt::disk_interface> customPosixDiskIOConstructor(
+lt::disk_interface% customPosixDiskIOConstructor(
         lt::io_context &ioContext, const lt::settings_interface &settings, lt::counters &counters)
 {
     return std::make_unique<CustomDiskIOThread>(lt::posix_disk_io_constructor(ioContext, settings, counters));
 }
 
-std::unique_ptr<lt::disk_interface> customMMapDiskIOConstructor(
+lt::disk_interface% customMMapDiskIOConstructor(
         lt::io_context &ioContext, const lt::settings_interface &settings, lt::counters &counters)
 {
     return std::make_unique<CustomDiskIOThread>(lt::mmap_disk_io_constructor(ioContext, settings, counters));
 }
 
-CustomDiskIOThread::CustomDiskIOThread(std::unique_ptr<libtorrent::disk_interface> nativeDiskIOThread)
+CustomDiskIOThread::CustomDiskIOThread(libtorrent::disk_interface% nativeDiskIOThread)
     : m_nativeDiskIO {std::move(nativeDiskIOThread)}
 {
 }

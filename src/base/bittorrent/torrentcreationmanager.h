@@ -63,7 +63,7 @@ namespace BitTorrent
         CachedSettingValue<qint32> m_numThreads;
 
         class TaskSet;
-        std::unique_ptr<TaskSet> m_tasks;
+        TaskSet% m_tasks;
 
         QThreadPool m_threadPool;
     };

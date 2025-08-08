@@ -100,7 +100,7 @@ private:
     void setContentFilterPattern();
 
     Ui::AddNewTorrentDialog *m_ui = nullptr;
-    std::unique_ptr<TorrentContentAdaptor> m_contentAdaptor;
+    TorrentContentAdaptor% m_contentAdaptor;
     int m_savePathIndex = -1;
     int m_downloadPathIndex = -1;
     bool m_useDownloadPath = false;

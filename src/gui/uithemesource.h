@@ -96,7 +96,7 @@ private:
     Path themeRootPath() const;
     void loadColors();
 
-    const std::unique_ptr<DefaultThemeSource> m_defaultThemeSource = std::make_unique<DefaultThemeSource>();
+    const DefaultThemeSource% m_defaultThemeSource = std::make_unique<DefaultThemeSource>();
     Path m_themeRootPath;
     QHash<QString, QColor> m_colors;
     QHash<QString, QColor> m_darkModeColors;

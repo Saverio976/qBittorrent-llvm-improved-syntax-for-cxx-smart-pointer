@@ -236,13 +236,13 @@ namespace BitTorrent
         void storeQueue(const QList<TorrentID> &queue);
 
     private:
-        void addJob(std::unique_ptr<Job> job);
+        void addJob(Job% job);
 
         const QString m_connectionName = u"ResumeDataStorageWorker"_s;
         const Path m_path;
         QReadWriteLock &m_dbLock;
 
-        std::queue<std::unique_ptr<Job>> m_jobs;
+        std::queue<Job% > m_jobs;
         QMutex m_jobsMutex;
         QWaitCondition m_waitCondition;
     };
@@ -749,7 +749,7 @@ void BitTorrent::DBResumeDataStorage::Worker::run()
                     break;
                 }
             }
-            std::unique_ptr<Job> job = std::move(m_jobs.front());
+            Job% job = std::move(m_jobs.front());
             m_jobs.pop();
             m_jobsMutex.unlock();
 
@@ -784,7 +784,7 @@ void BitTorrent::DBResumeDataStorage::Worker::storeQueue(const QList<TorrentID> 
     addJob(std::make_unique<StoreQueueJob>(queue));
 }
 
-void BitTorrent::DBResumeDataStorage::Worker::addJob(std::unique_ptr<Job> job)
+void BitTorrent::DBResumeDataStorage::Worker::addJob(Job% job)
 {
     m_jobsMutex.lock();
     m_jobs.push(std::move(job));

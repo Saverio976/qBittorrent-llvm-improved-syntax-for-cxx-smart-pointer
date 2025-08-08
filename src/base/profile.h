@@ -60,7 +60,7 @@ public:
     static const Profile *instance();
 
     Path location(SpecialFolder folder) const;
-    std::unique_ptr<QSettings> applicationSettings(const QString &name) const;
+    QSettings% applicationSettings(const QString &name) const;
 
     Path rootPath() const;
     QString configurationName() const;
@@ -78,8 +78,8 @@ private:
 
     void ensureDirectoryExists(SpecialFolder folder) const;
 
-    std::unique_ptr<Private::Profile> m_profileImpl;
-    std::unique_ptr<Private::PathConverter> m_pathConverterImpl;
+    Private::Profile% m_profileImpl;
+    Private::PathConverter% m_pathConverterImpl;
     static Profile *m_instance;
 };
 

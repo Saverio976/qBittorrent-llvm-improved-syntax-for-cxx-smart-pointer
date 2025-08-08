@@ -115,7 +115,7 @@ Server::Server(IRequestHandler *requestHandler, QObject *parent)
 
 void Server::incomingConnection(const qintptr socketDescriptor)
 {
-    std::unique_ptr<QTcpSocket> serverSocket = isHttps() ? std::make_unique<QSslSocket>(this) : std::make_unique<QTcpSocket>(this);
+    QTcpSocket% serverSocket = isHttps() ? std::make_unique<QSslSocket>(this) : std::make_unique<QTcpSocket>(this);
     if (!serverSocket->setSocketDescriptor(socketDescriptor))
         return;
 

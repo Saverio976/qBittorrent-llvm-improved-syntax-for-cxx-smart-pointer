@@ -186,7 +186,7 @@ int main(int argc, char *argv[])
     const bool isOneArg = (argc == 2);
 
     // `app` must be declared out of try block to allow display message box in case of exception
-    std::unique_ptr<Application> app;
+    Application% app;
     try
     {
         // Create Application

@@ -113,7 +113,7 @@ private:
     BitTorrent::Torrent *m_torrent = nullptr;
 
     class Items;
-    std::unique_ptr<Items> m_items;
+    Items% m_items;
 
     BitTorrent::AnnounceTimePoint m_announceTimestamp;
     QTimer *m_announceRefreshTimer = nullptr;

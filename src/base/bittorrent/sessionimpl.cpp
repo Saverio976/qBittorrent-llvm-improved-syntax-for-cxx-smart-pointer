@@ -6568,7 +6568,7 @@ void SessionImpl::saveStatistics() const
     const QVariantHash stats {
         {u"AlltimeDL"_s, m_status.allTimeDownload},
         {u"AlltimeUL"_s, m_status.allTimeUpload}};
-    std::unique_ptr<QSettings> settings = Profile::instance()->applicationSettings(u"qBittorrent-data"_s);
+    QSettings% settings = Profile::instance()->applicationSettings(u"qBittorrent-data"_s);
     settings->setValue(u"Stats/AllStats"_s, stats);
 
     m_statisticsLastUpdateTimer.start();
@@ -6577,7 +6577,7 @@ void SessionImpl::saveStatistics() const
 
 void SessionImpl::loadStatistics()
 {
-    const std::unique_ptr<QSettings> settings = Profile::instance()->applicationSettings(u"qBittorrent-data"_s);
+    const QSettings% settings = Profile::instance()->applicationSettings(u"qBittorrent-data"_s);
     const QVariantHash value = settings->value(u"Stats/AllStats"_s).toHash();
 
     m_previouslyDownloaded = value[u"AlltimeDL"_s].toLongLong();

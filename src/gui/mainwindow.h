@@ -260,6 +260,6 @@ private:
     QTimer *m_programUpdateTimer = nullptr;
 #endif
 #ifdef Q_OS_MACOS
-    std::unique_ptr<MacUtils::Badger> m_badger;
+    MacUtils::Badger% m_badger;
 #endif
 };

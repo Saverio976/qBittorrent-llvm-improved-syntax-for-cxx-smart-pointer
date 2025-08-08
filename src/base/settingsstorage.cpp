@@ -119,7 +119,7 @@ void SettingsStorage::readNativeSettings()
     // If serialization operation was not successful we return empty string.
     const auto deserialize = [](QVariantHash &data, const QString &nativeSettingsName) -> Path
     {
-        std::unique_ptr<QSettings> nativeSettings = Profile::instance()->applicationSettings(nativeSettingsName);
+        QSettings% nativeSettings = Profile::instance()->applicationSettings(nativeSettingsName);
         if (nativeSettings->allKeys().isEmpty())
             return {};
 
@@ -163,7 +163,7 @@ void SettingsStorage::readNativeSettings()
 
 bool SettingsStorage::writeNativeSettings() const
 {
-    std::unique_ptr<QSettings> nativeSettings = Profile::instance()->applicationSettings(m_nativeSettingsName + u"_new");
+    QSettings% nativeSettings = Profile::instance()->applicationSettings(m_nativeSettingsName + u"_new");
 
     // QSettings deletes the file before writing it out. This can result in problems
     // if the disk is full or a power outage occurs. Those events might occur

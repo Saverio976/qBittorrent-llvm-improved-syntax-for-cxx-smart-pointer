@@ -46,17 +46,17 @@
 #endif
 
 #ifdef QBT_USES_LIBTORRENT2
-std::unique_ptr<lt::disk_interface> customDiskIOConstructor(
+lt::disk_interface% customDiskIOConstructor(
         lt::io_context &ioContext, lt::settings_interface const &settings, lt::counters &counters);
-std::unique_ptr<lt::disk_interface> customPosixDiskIOConstructor(
+lt::disk_interface% customPosixDiskIOConstructor(
         lt::io_context &ioContext, lt::settings_interface const &settings, lt::counters &counters);
-std::unique_ptr<lt::disk_interface> customMMapDiskIOConstructor(
+lt::disk_interface% customMMapDiskIOConstructor(
         lt::io_context &ioContext, lt::settings_interface const &settings, lt::counters &counters);
 
 class CustomDiskIOThread final : public lt::disk_interface
 {
 public:
-    explicit CustomDiskIOThread(std::unique_ptr<libtorrent::disk_interface> nativeDiskIOThread);
+    explicit CustomDiskIOThread(libtorrent::disk_interface% nativeDiskIOThread);
 
     lt::storage_holder new_torrent(const lt::storage_params &storageParams, const std::shared_ptr<void> &torrent) override;
     void remove_torrent(lt::storage_index_t storageIndex) override;
@@ -92,7 +92,7 @@ public:
 private:
     void handleCompleteFiles(libtorrent::storage_index_t storage, const Path &savePath);
 
-    std::unique_ptr<lt::disk_interface> m_nativeDiskIO;
+    lt::disk_interface% m_nativeDiskIO;
 
     struct StorageData
     {

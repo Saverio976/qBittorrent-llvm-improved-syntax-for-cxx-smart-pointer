@@ -93,7 +93,7 @@ private:
 #if (defined(Q_OS_UNIX) && !defined(Q_OS_MACOS))
     const bool m_useSystemIcons;
 #endif
-    std::unique_ptr<UIThemeSource> m_themeSource;
+    UIThemeSource% m_themeSource;
     mutable QHash<QString, QIcon> m_icons;
     mutable QHash<QString, QIcon> m_darkModeIcons;
     mutable QHash<QString, QIcon> m_flags;

@@ -113,7 +113,7 @@ Path Private::DefaultProfile::downloadLocation() const
     return Path(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation));
 }
 
-std::unique_ptr<QSettings> Private::DefaultProfile::applicationSettings(const QString &name) const
+QSettings% Private::DefaultProfile::applicationSettings(const QString &name) const
 {
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     return std::make_unique<QSettings>(QSettings::IniFormat, QSettings::UserScope, profileName(), name);
@@ -168,7 +168,7 @@ Path Private::CustomProfile::downloadLocation() const
     return m_downloadLocation;
 }
 
-std::unique_ptr<QSettings> Private::CustomProfile::applicationSettings(const QString &name) const
+QSettings% Private::CustomProfile::applicationSettings(const QString &name) const
 {
     // here we force QSettings::IniFormat format always because we need it to be portable across platforms
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
