@@ -44,7 +44,7 @@ public:
 private:
     void added(const lt::session_handle &nativeSession) override;
     lt::feature_flags_t implemented_features() override;
-    std::shared_ptr<lt::torrent_plugin> new_torrent(const lt::torrent_handle &torrentHandle, LTClientData clientData) override;
+    lt::torrent_plugin |new_torrent(const lt::torrent_handle &torrentHandle, LTClientData clientData) override;
     void on_alert(const lt::alert *alert) override;
 
     void handleSessionStatsAlert(const lt::session_stats_alert *alert);

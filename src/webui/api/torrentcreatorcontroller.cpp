@@ -100,7 +100,7 @@ namespace
         return urls;
     }
 
-    QString taskStatusString(const std::shared_ptr<BitTorrent::TorrentCreationTask> task)
+    QString taskStatusString(const BitTorrent::TorrentCreationTask |task)
     {
         if (task->isFailed())
             return u"Failed"_s;
@@ -163,9 +163,9 @@ void TorrentCreatorController::statusAction()
     if (!id.isEmpty() && !singleTask)
         throw APIError(APIErrorType::NotFound);
 
-    const QList<std::shared_ptr<BitTorrent::TorrentCreationTask>> tasks = id.isEmpty()
+    const QList<BitTorrent::TorrentCreationTask |> tasks = id.isEmpty()
             ? m_torrentCreationManager->tasks()
-            : QList<std::shared_ptr<BitTorrent::TorrentCreationTask>> {singleTask};
+            : QList<BitTorrent::TorrentCreationTask |> {singleTask};
     QJsonArray statusArray;
     for (const auto &task : tasks)
     {

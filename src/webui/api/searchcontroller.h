@@ -74,5 +74,5 @@ private:
     QJsonArray getPluginsInfo(const QStringList &plugins) const;
 
     QSet<int> m_activeSearches;
-    QHash<int, std::shared_ptr<SearchHandler>> m_searchHandlers;
+    QHash<int, SearchHandler |> m_searchHandlers;
 };

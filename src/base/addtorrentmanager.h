@@ -74,8 +74,8 @@ protected:
             , const BitTorrent::AddTorrentParams &addTorrentParams);
     void handleAddTorrentFailed(const QString &source, const QString &reason);
     void handleDuplicateTorrent(const QString &source, const BitTorrent::TorrentDescriptor &torrentDescr, BitTorrent::Torrent *existingTorrent);
-    void setTorrentFileGuard(const QString &source, std::shared_ptr<TorrentFileGuard> torrentFileGuard);
-    std::shared_ptr<TorrentFileGuard> releaseTorrentFileGuard(const QString &source);
+    void setTorrentFileGuard(const QString &source, TorrentFileGuard |torrentFileGuard);
+    TorrentFileGuard |releaseTorrentFileGuard(const QString &source);
 
 private:
     void onDownloadFinished(const Net::DownloadResult &result);
@@ -87,5 +87,5 @@ private:
     BitTorrent::Session *m_btSession = nullptr;
     QHash<QString, BitTorrent::AddTorrentParams> m_downloadedTorrents;
     QHash<BitTorrent::InfoHash, QString> m_sourcesByInfoHash;
-    QHash<QString, std::shared_ptr<TorrentFileGuard>> m_guardedTorrentFiles;
+    QHash<QString, TorrentFileGuard |> m_guardedTorrentFiles;
 };

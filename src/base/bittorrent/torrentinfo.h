@@ -84,7 +84,7 @@ namespace BitTorrent
 
         bool matchesInfoHash(const InfoHash &otherInfoHash) const;
 
-        std::shared_ptr<lt::torrent_info> nativeInfo() const;
+        lt::torrent_info |nativeInfo() const;
         QList<lt::file_index_t> nativeIndexes() const;
 
     private:

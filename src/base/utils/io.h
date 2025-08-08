@@ -79,7 +79,7 @@ namespace Utils::IO
 
     private:
         QFileDevice *m_device = nullptr;
-        std::shared_ptr<QByteArray> m_buffer;
+        QByteArray |m_buffer;
         int m_bufferSize = 0;
     };
 

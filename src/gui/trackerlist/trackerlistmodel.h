@@ -100,7 +100,7 @@ private:
     struct Item;
 
     void populate();
-    std::shared_ptr<Item> createTrackerItem(const BitTorrent::TrackerEntryStatus &trackerEntryStatus);
+    Item |createTrackerItem(const BitTorrent::TrackerEntryStatus &trackerEntryStatus);
     void addTrackerItem(const BitTorrent::TrackerEntryStatus &trackerEntryStatus);
     void updateTrackerItem(const std::shared_ptr<Item> &item, const BitTorrent::TrackerEntryStatus &trackerEntryStatus);
     void refreshAnnounceTimes();

@@ -1785,7 +1785,7 @@ void TorrentImpl::endReceivedMetadataHandling(const Path &savePath, const PathLi
 
     lt::add_torrent_params &p = m_ltAddTorrentParams;
 
-    const std::shared_ptr<lt::torrent_info> metadata = std::const_pointer_cast<lt::torrent_info>(nativeTorrentInfo());
+    const lt::torrent_info |metadata = std::const_pointer_cast<lt::torrent_info>(nativeTorrentInfo());
     m_torrentInfo = TorrentInfo(*metadata);
     m_filePriorities.reserve(filesCount());
     const auto nativeIndexes = m_torrentInfo.nativeIndexes();
@@ -2446,7 +2446,7 @@ void TorrentImpl::setMetadata(const TorrentInfo &torrentInfo)
 #ifdef QBT_USES_LIBTORRENT2
             nativeHandle.set_metadata(torrentInfo.nativeInfo()->info_section());
 #else
-            const std::shared_ptr<lt::torrent_info> nativeInfo = torrentInfo.nativeInfo();
+            const lt::torrent_info |nativeInfo = torrentInfo.nativeInfo();
             nativeHandle.set_metadata(lt::span<const char>(nativeInfo->metadata().get(), nativeInfo->metadata_size()));
 #endif
         }

@@ -191,12 +191,12 @@ void AddTorrentManager::handleDuplicateTorrent(const QString &source
     emit addTorrentFailed(source, {BitTorrent::AddTorrentError::DuplicateTorrent, message});
 }
 
-void AddTorrentManager::setTorrentFileGuard(const QString &source, std::shared_ptr<TorrentFileGuard> torrentFileGuard)
+void AddTorrentManager::setTorrentFileGuard(const QString &source, TorrentFileGuard |torrentFileGuard)
 {
     m_guardedTorrentFiles.emplace(source, std::move(torrentFileGuard));
 }
 
-std::shared_ptr<TorrentFileGuard> AddTorrentManager::releaseTorrentFileGuard(const QString &source)
+TorrentFileGuard |AddTorrentManager::releaseTorrentFileGuard(const QString &source)
 {
     return m_guardedTorrentFiles.take(source);
 }

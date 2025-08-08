@@ -88,7 +88,7 @@ private:
 
     void showEvent(QShowEvent *event) override;
 
-    void setCurrentContext(std::shared_ptr<Context> context);
+    void setCurrentContext(Context |context);
     void updateCurrentContext();
     void populateSavePaths();
     void loadState();
@@ -106,7 +106,7 @@ private:
     bool m_useDownloadPath = false;
     LineEdit *m_filterLine = nullptr;
 
-    std::shared_ptr<Context> m_currentContext;
+    Context |m_currentContext;
 
     SettingValue<QSize> m_storeDialogSize;
     SettingValue<QString> m_storeDefaultCategory;

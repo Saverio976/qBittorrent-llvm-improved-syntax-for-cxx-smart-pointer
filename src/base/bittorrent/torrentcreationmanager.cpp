@@ -46,7 +46,7 @@ namespace BitTorrent
     using namespace boost::multi_index;
 
     class TorrentCreationManager::TaskSet final : public boost::multi_index_container<
-            std::shared_ptr<TorrentCreationTask>,
+            TorrentCreationTask |,
             indexed_by<
                     ordered_unique<tag<struct ByID>, const_mem_fun<TorrentCreationTask, QString, &TorrentCreationTask::id>>,
                     ordered_non_unique<tag<struct ByCompletion>, composite_key<
@@ -72,7 +72,7 @@ BitTorrent::TorrentCreationManager::TorrentCreationManager(IApplication *app, QO
 
 BitTorrent::TorrentCreationManager::~TorrentCreationManager() = default;
 
-std::shared_ptr<BitTorrent::TorrentCreationTask> BitTorrent::TorrentCreationManager::createTask(const TorrentCreatorParams &params, bool startSeeding)
+BitTorrent::TorrentCreationTask |BitTorrent::TorrentCreationManager::createTask(const TorrentCreatorParams &params, bool startSeeding)
 {
     if (std::cmp_greater_equal(m_tasks->size(), m_maxTasks.get()))
     {
@@ -109,7 +109,7 @@ QString BitTorrent::TorrentCreationManager::generateTaskID() const
     return taskID;
 }
 
-std::shared_ptr<BitTorrent::TorrentCreationTask> BitTorrent::TorrentCreationManager::getTask(const QString &id) const
+BitTorrent::TorrentCreationTask |BitTorrent::TorrentCreationManager::getTask(const QString &id) const
 {
     const auto &tasksByID = m_tasks->get<ByID>();
     const auto iter = tasksByID.find(id);
@@ -119,7 +119,7 @@ std::shared_ptr<BitTorrent::TorrentCreationTask> BitTorrent::TorrentCreationMana
     return *iter;
 }
 
-QList<std::shared_ptr<BitTorrent::TorrentCreationTask>> BitTorrent::TorrentCreationManager::tasks() const
+QList<BitTorrent::TorrentCreationTask |> BitTorrent::TorrentCreationManager::tasks() const
 {
     const auto &tasksByCompletion = m_tasks->get<ByCompletion>();
     return {tasksByCompletion.cbegin(), tasksByCompletion.cend()};

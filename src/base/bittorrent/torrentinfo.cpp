@@ -303,7 +303,7 @@ int TorrentInfo::fileIndex(const Path &filePath) const
     return -1;
 }
 
-std::shared_ptr<lt::torrent_info> TorrentInfo::nativeInfo() const
+lt::torrent_info |TorrentInfo::nativeInfo() const
 {
     if (!isValid())
         return nullptr;

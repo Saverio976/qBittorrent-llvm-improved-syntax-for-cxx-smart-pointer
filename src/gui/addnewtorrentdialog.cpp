@@ -428,7 +428,7 @@ void AddNewTorrentDialog::showEvent(QShowEvent *event)
     raise();
 }
 
-void AddNewTorrentDialog::setCurrentContext(const std::shared_ptr<Context> context)
+void AddNewTorrentDialog::setCurrentContext(const Context |context)
 {
     Q_ASSERT(context);
     if (!context) [[unlikely]]

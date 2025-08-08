@@ -1514,7 +1514,7 @@ void SessionImpl::processNextResumeData(ResumeSessionContext *context)
 
             if (nonstd::expected<LoadTorrentParams, QString> loadPreferredResumeDataResult = context->startupStorage->load(torrentID))
             {
-                std::shared_ptr<lt::torrent_info> ti = resumeData.ltAddTorrentParams.ti;
+                lt::torrent_info |ti = resumeData.ltAddTorrentParams.ti;
                 resumeData = std::move(*loadPreferredResumeDataResult);
                 if (!resumeData.ltAddTorrentParams.ti)
                     resumeData.ltAddTorrentParams.ti = std::move(ti);

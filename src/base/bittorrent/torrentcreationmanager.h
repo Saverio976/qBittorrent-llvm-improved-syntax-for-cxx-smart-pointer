@@ -51,9 +51,9 @@ namespace BitTorrent
         explicit TorrentCreationManager(IApplication *app, QObject *parent = nullptr);
         ~TorrentCreationManager() override;
 
-        std::shared_ptr<TorrentCreationTask> createTask(const TorrentCreatorParams &params, bool startSeeding = true);
-        std::shared_ptr<TorrentCreationTask> getTask(const QString &id) const;
-        QList<std::shared_ptr<TorrentCreationTask>> tasks() const;
+        TorrentCreationTask |createTask(const TorrentCreatorParams &params, bool startSeeding = true);
+        TorrentCreationTask |getTask(const QString &id) const;
+        QList<TorrentCreationTask |> tasks() const;
         bool deleteTask(const QString &id);
 
     private:

@@ -64,7 +64,7 @@ public:
                     , std::function<void (lt::disk_buffer_holder, const lt::storage_error &)> handler
                     , lt::disk_job_flags_t flags) override;
     bool async_write(lt::storage_index_t storageIndex, const lt::peer_request &peerRequest
-                     , const char *buf, std::shared_ptr<lt::disk_observer> diskObserver
+                     , const char *buf, lt::disk_observer |diskObserver
                      , std::function<void (const lt::storage_error &)> handler, lt::disk_job_flags_t flags) override;
     void async_hash(lt::storage_index_t storageIndex, lt::piece_index_t piece, lt::span<lt::sha256_hash> hash, lt::disk_job_flags_t flags
                     , std::function<void (lt::piece_index_t, const lt::sha1_hash &, const lt::storage_error &)> handler) override;

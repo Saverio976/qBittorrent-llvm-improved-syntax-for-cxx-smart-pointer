@@ -64,7 +64,7 @@ private:
     Q_INVOKABLE void store_impl(const Path &fileName, const QByteArray &data);
 
     Path m_storageDir;
-    std::shared_ptr<QFile> m_lockFile;
+    QFile |m_lockFile;
 
     static QHash<Path, std::weak_ptr<QFile>> m_reservedPaths;
     static QReadWriteLock m_reservedPathsLock;
